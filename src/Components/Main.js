@@ -1,10 +1,10 @@
 const name = 'Amith N Senevirathna';
 const position = 'Web Developer';
-const myObj = {
+const myObj = [{
     name : `${name}`,
     position : `${position}`,
     city : 'Monaragala'
-};
+}];
 
 function Main({children, name, city, position}) {
     // const {city}= myObj;
