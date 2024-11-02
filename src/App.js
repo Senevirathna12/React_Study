@@ -2,7 +2,7 @@ import "./App.css";
 import Main from "./Components/Main";
 
 
-const myObj = [
+const myData = [
   {
     name: "John Doe",
     position: "Developer",
@@ -25,12 +25,9 @@ function App() {
     <div>
       And React Learning
       <h1>Amith</h1>
-      <Main name='Silva' city='Matara' position='Mobile App Developer'>
-        <h5>This is a childeren</h5>
-      </Main>
-      <Main name='Chamara' city='Kandy' position='Web developer'/>
-      <Main name='Senevirathna' city='Colombo' position='App developer'/>
-     
+      {myData?.map(({name,city,position},index) => {
+        return <Main key={index} name={name} city={city} position={position}/>
+      })}
     </div>
   );
 }
