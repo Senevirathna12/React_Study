@@ -1,9 +1,17 @@
-import './App.css';
+import "./App.css";
+import Main from "./Components/Main";
 
 function App() {
   return (
-    <div className="App">
-      ANS React Study Day
+    <div>
+      And React Learning
+      <h1>Amith</h1>
+      <Main name='Silva' city='Matara' position='Mobile App Developer'>
+        <h5>This is a childeren</h5>
+      </Main>
+      <Main name='Chamara' city='Kandy' position='Web developer'/>
+      <Main name='Senevirathna' city='Colombo' position='App developer'/>
+     
     </div>
   );
 }
