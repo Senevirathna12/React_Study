@@ -1,24 +1,6 @@
 import "./App.css";
 import Main from "./Components/Main";
-
-
-const myData = [
-  {
-    name: "John Doe",
-    position: "Developer",
-    city: "Monaragala"
-  },
-  {
-    name: "Jane Smith",
-    position: "Designer",
-    city: "Monaragala"
-  },
-  {
-    name: "Alice Johnson",
-    position: "Project Manager",
-    city: "Monaragala"
-  }
-];
+import myData from "./Data/myData";
 
 function App() {
   return (
