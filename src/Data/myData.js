@@ -2,17 +2,22 @@ const myData = [
     {
       name: "John Doe",
       position: "Developer",
-      city: "Monaragala"
+      city: "Matara"
     },
     {
       name: "Jane Smith",
       position: "Designer",
-      city: "Monaragala"
+      city: "Colombo"
     },
     {
       name: "Alice Johnson",
       position: "Project Manager",
-      city: "Monaragala"
+      city: "Kandy"
+    },
+    {
+        name: "Jhone Silva",
+        position: "Mobile app developer",
+        city: "Monaragala"
     }
 ];
 

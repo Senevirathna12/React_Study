@@ -2,7 +2,7 @@ function Main({ name, city, position }) {
   return (
     <div>
       <img src="my.png" alt="Developer Img" />
-      <div>
+      <div className="detailsBlock">
         <h3>{name}</h3>
         <p>
           <span>{city}</span>

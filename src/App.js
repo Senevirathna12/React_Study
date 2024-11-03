@@ -4,9 +4,11 @@ import myData from "./Data/myData";
 
 function App() {
   return (
-    <div>
-      ANS React Learning
-      <h1>Amith</h1>
+    <div className="mainContainer">
+      <div>
+        ANS React Learning
+        <h1>Amith</h1>
+      </div>
       <div className="mainComponent">
         {myData?.map(({name,city,position},index) => {
           return (
@@ -14,6 +16,17 @@ function App() {
           )
         })}
       </div>
+      <br />
+      <br />
+      <button style={
+        {
+          frontSize: '12px',
+          border:'1px solid red',
+          padding: '7px 12px'
+        }
+      }>
+        Click Me
+      </button>
       
     
     </div>
