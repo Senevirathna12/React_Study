@@ -1,61 +1,124 @@
 import { useState } from "react";
 import "./App.css";
-import Main from "./Components/Main";
-import myData from "./Data/myData";
+import Unit from "./Components/Unit";
 
 function App() {
-  
-  const [inputval, setInputVal] = useState(0);
-  const onClickHandle = () => {
-    setTimeout(()=>{
-      console.log('Clicked');
-      setInputVal((pre) => pre+1);
-    },2000)
-  };
+  const [inputData, setInputData] = useState({
+    imageUrl: "",
+    name: "",
+    city: "",
+    position: "",
+  });
 
+  const [myData, setMydata] = useState([]);
+  console.log(myData)
   return (
-    <div className="mainContainer">
-      <div>
-        ANS React Learning
-        <h1>Count : {inputval}</h1>
+    <div className="main__container">
+      <div className="main_left">
+        <input
+          type="text"
+          placeholder="Please input image url"
+          value={inputData.imageUrl}
+          onChange={(e) => {
+            e.preventDefault();
+            setInputData((pre) => ({
+              ...pre,
+              imageUrl: e.target.value,
+            }));
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Please input your name"
+          value={inputData.name}
+          onChange={(e) => {
+            e.preventDefault();
+            setInputData((pre) => ({
+              ...pre,
+              name: e.target.value,
+            }));
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Please input your city"
+          value={inputData.city}
+          onChange={(e) => {
+            e.preventDefault();
+            setInputData((pre) => ({
+              ...pre,
+              city: e.target.value,
+            }));
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Please input your position"
+          value={inputData.position}
+          onChange={(e) => {
+            e.preventDefault();
+            setInputData((pre) => ({
+              ...pre,
+              position: e.target.value,
+            }));
+          }}
+        />
+        <button
+          onClick={() => {
+            setMydata((pre) => [...pre,{
+              image :inputData.imageUrl,
+              name:inputData.name,
+              city:inputData.city,
+              position: inputData.position
+            }]);
+
+            // setInputData((pre)=>{
+            //   if(pre.imageUrl.length > 0){
+            //     return {
+            //       ...pre,
+            //       imageUrl :''
+            //     } 
+            //   }else{
+            //     return pre;
+            //   }
+            // });
+            // setInputData((pre)=> (pre.name.length> 0 ?({...pre ,
+            //   name :''
+            // }): pre));
+
+            // setInputData((pre) => (pre.city.length > 0 ? ({
+            //   ...pre,
+            //   city:''
+            // }): pre));
+
+            // setInputData((pre)=>(pre.position.length > 0 ?({
+            //   ...pre,
+            //   position :''
+            // }) : pre ))
+            setInputData({
+              imageUrl :'',
+              name:'',
+              city:'',
+              position:''
+            })
+          }}
+        >
+          Submit
+        </button>
       </div>
-      <div className="mainComponent">
-        {myData?.map(({ name, city, position }, index) => {
+      <div className="main_right">
+        {myData?.map(({image, name, city, position }, index) => {
           return (
-            <Main key={index} name={name} city={city} position={position} />
+            <Unit
+              image={image}
+              name={name}
+              city={city}
+              position={position}
+              key={index}
+            />
           );
         })}
       </div>
-      <br />
-      <br />
-      {/* onclick function calll */}
-      <button
-        style={{
-          frontSize: "12px",
-          border: "1px solid red",
-          padding: "7px 12px",
-        }}
-        onClick={onClickHandle}
-      >
-        Click Me
-      </button>
-
-      <br />
-      <br />
-      {/* onChange function call */}
-      {/* <p>{inputval}</p>
-      <input
-        type="text"
-        style={{ border: "1px solid black", fontSize: "14px", padding: "10px" }}
-        placeholder="Please write somthing here...!"
-        onChange={(e)=>{        
-          e.preventDefault();
-          setInputVal(e.target.value);
-        }}
-      /> */}
-
-
-
     </div>
   );
 }
